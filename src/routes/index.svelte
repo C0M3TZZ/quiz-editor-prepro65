@@ -1,5 +1,5 @@
 <script>
-  import { collection, addDoc } from "firebase/firestore"; 
+  import { collection, addDoc, getDocs } from "firebase/firestore"; 
   import {db} from '$lib/firebase.js';
   let form = {
     choice_field: "",
@@ -9,6 +9,7 @@
   };
 
   let sentQuiz = async () => {
+    const count_c = await getDocs(collection(db, "quiz"));    
     const quizRef = await addDoc(collection(db, "quiz"), {
       "choice": choice,
       "description": form.desc_field,
@@ -16,6 +17,7 @@
       "point" : form.point_field,
       "submited_user": [],
       "created_at": new Date(),
+      "no": count_c.size + 1,
     });
     if (quizRef) {
       alert("Quiz added");

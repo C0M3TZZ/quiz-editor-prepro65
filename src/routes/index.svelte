@@ -44,6 +44,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Quiz Editor</title>
+</svelte:head>
+
 <div class="flex w-screen h-screen items-center justify-center">
   <div class="w-full h-full p-12 overflow-scroll">
     <h1>Preview</h1>

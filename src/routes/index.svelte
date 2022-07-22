@@ -15,6 +15,7 @@
       "del_point": -form.del_point_field,
       "point" : form.point_field,
       "submited_user": [],
+      "created_at": new Date(),
     });
     if (quizRef) {
       alert("Quiz added");
